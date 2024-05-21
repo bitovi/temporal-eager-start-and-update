@@ -1,0 +1,13 @@
+services:
+  worker:
+    build: .
+    ports:
+      - 8080:8080
+    environment:
+      - TEMPORAL_PORT=bitovi.x72yu.tmprl.cloud:7233
+      - TEMPORAL_NAMESPACE=bitovi.x72yu
+      - TEMPORAL_CERTIFICATE_PATH=./certs/bitovi.crt
+      - TEMPORAL_KEY_PATH=./certs/bitovi.key
+      - HTTP_PORT=8080
+    volumes:
+      - ./certs/:/app/certs
